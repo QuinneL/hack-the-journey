@@ -15,8 +15,8 @@ class Location:
     self.long_lat = long_lat
     self.category = category
     self.tags = tags 
-    #location = geolocator.reverse(long_lat)
-    #self.address = location
+    location = geolocator.reverse(long_lat)
+    self.address = location
   def add_time(self, time, hours):
     self.time_estimate = time
     self.hours = hours
@@ -35,7 +35,7 @@ def parseAmadeus(amadeus):
 
   #println using for debugging only
   for item in list_locations:
-    print(item.tags)
+    print(item.address)
 
   return list_locations
 

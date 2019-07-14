@@ -6,5 +6,5 @@ amadeus = Client(
 )
 
 #in real life the app would fetch information
-profile_file = input('Name of profile json file')
-trip_file = input('Name of trip json file')
+profile_file = input('Name of profile json file: ')
+trip_file = input('Name of trip json file: ')
