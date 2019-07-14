@@ -15,10 +15,8 @@ class Location:
     self.long_lat = long_lat
     self.category = category
     self.tags = tags 
-    location = geolocator.reverse(long_lat)
-    self.address = location
-  def __init__(self, name):
-    self.name = name
+    #location = geolocator.reverse(long_lat)
+    #self.address = location
   def add_time(self, time, hours):
     self.time_estimate = time
     self.hours = hours
@@ -32,12 +30,14 @@ def parseAmadeus(amadeus):
   list_locations = []
   for l in amadeus_array:
     #creating new location 
-    new_location = Location(l["name"])
-    list_locations.append(new_location)
+    long_lat = (l["geoCode"]["latitude"], l["geoCode"]["longitude"])
+    list_locations.append(Location(l["name"], long_lat, l["category"], l["tags"]))
 
   #println using for debugging only
   for item in list_locations:
-    print(item.name)
+    print(item.tags)
+
+  return list_locations
 
 
 #running the method on a tester
