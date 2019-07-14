@@ -31,11 +31,15 @@ def parseAmadeus(amadeus):
   amadeus_array = json.loads(amadeus.read())
   list_locations = []
   for l in amadeus_array:
+    #creating new location 
     new_location = Location(l["name"])
     list_locations.append(new_location)
 
+  #println using for debugging only
   for item in list_locations:
     print(item.name)
 
+
+#running the method on a tester
 with open('j.json') as json_file: 
   parseAmadeus(json_file)
