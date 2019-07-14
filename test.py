@@ -6,7 +6,7 @@ amadeus = Client(
 )
 
 try:
-    response = amadeus.reference_data.urls.checkin_links.get(airlineCode='BA')
+    response = amadeus.reference_data.locations.points_of_interest.get(latitude=41.397158, longitude=2.160873)
     print(response.data)
 except ResponseError as error:
     print(error)
