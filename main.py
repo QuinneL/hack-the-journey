@@ -1,12 +1,17 @@
 
 
 '''
-profile: json file made by the app
+profile: json file for each USER made by the app
+returns: maybe initialized global variables such as interests, sleep schedule
+'''
+def parseProfile(profile):
+    return 1
+
+'''
+trip: json file for each trip made by the app
 returns: maybe initialized global variables such as budget, dates, etc
 '''
-
-
-def decodeProfile(profile):
+def parseTrip(trip):
     return 1
 
 
@@ -14,8 +19,6 @@ def decodeProfile(profile):
 amadeus: parses through the json file that amadeus creates
 returns: returns a hashmap or table 
 '''
-
-
 def parseAmadeus(amadeus):
     return []
 
@@ -24,8 +27,6 @@ def parseAmadeus(amadeus):
 locations: takes in the hashmap or table generated after parsing amadeus
 returns: a version of it where each item has a numerical value and weight 
 '''
-
-
 def createValueList(locations):
     return []
 
