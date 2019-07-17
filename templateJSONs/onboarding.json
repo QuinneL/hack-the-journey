@@ -1,5 +1,5 @@
   {
-    "name": "Sarah" ,
+    "name": "Sarah",
     "age": "21",
     "food": [
       "asian",
@@ -14,7 +14,7 @@
     "hobbies": [
       "beach",
       "night life",
-      "resturants"
+      "RESTAURANT"
     ],
     "rest_or_play": "play",
     "wakeUp": "10:00",

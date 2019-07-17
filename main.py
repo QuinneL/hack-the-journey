@@ -1,6 +1,8 @@
 from amadeus import Client, ResponseError
 from parsing_amadeus import parseAmadeus, Location
 from datetime import datetime, time, date 
+from algorithm import createValueList
+from parsing_json import parseProfile, UserProfile  
 
 amadeus = Client(
     client_id='CEQgUXrPgPn5oG6KFk2BF2hvqlaZh8I3',
@@ -21,4 +23,7 @@ try:
 except ResponseError as error:
     print(error)
 
-parseAmadeus(response.data)
+locations_list = parseAmadeus(response.data)
+profile = parseProfile('templateJSONS/onboarding.json')
+createValueList(locations_list, profile)
+1
