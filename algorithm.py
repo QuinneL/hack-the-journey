@@ -1,11 +1,16 @@
+from parsing_amadeus import Location
+from parsing_json import UserProfile
 
 '''
-locations: takes in the hashmap or table generated after parsing amadeus
+locations: list of location items
+profile: profile item that we will be using for creating values
 returns: a version of it where each item has a numerical value and weight 
 '''
-def createValueList(locations):
-    return []
-
+def createValueList(locations_list, profile):
+  for l in locations_list:
+    if l.category in profile.hobbies:
+     print("YES")
+     l.set_value(l.value_out_of_hundred + 10)
 
 '''
 valueList: a list where each item has a value and a weight

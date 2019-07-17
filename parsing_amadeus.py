@@ -4,14 +4,16 @@ geolocator = Nominatim(user_agent="TOTO")
 from datetime import datetime, time, date 
 
 class Location:
-  address = ""
+  #address = ""
   name = ""
   long_lat = (0,0)
   category = ""
   tags = []
   open_time = time(hour=9)
   close_time = time(hour=20)
-  hours = 1
+  hours_spent_average = 1
+  price = 30
+  value_out_of_hundred = 50
   def __init__(self, name, long_lat, category, tags):
     self.name = name
     self.long_lat = long_lat
@@ -19,10 +21,13 @@ class Location:
     self.tags = tags 
     #location = geolocator.reverse(long_lat)
     #self.address = location
-  def add_time(self, open, close, hours):
+  def add_time(self, open, close, price, hours):
     self.open_time = open
     self.close_time = close
-    self.hours = hours
+    self.hours_spent_average = hours
+    self.price = price
+  def set_value(self, val):
+    self.value_out_of_hundred = val
   #def compare_dist(self, otherlocation):    
 
 '''
