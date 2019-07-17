@@ -26,4 +26,3 @@ except ResponseError as error:
 locations_list = parseAmadeus(response.data)
 profile = parseProfile('templateJSONS/onboarding.json')
 createValueList(locations_list, profile)
-1
