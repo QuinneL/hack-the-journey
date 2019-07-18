@@ -58,4 +58,4 @@ def parseTrip(trip):
     return 1
 
 
-parseProfile('onboarding.json')
+parseProfile('templateJSONS/onboarding.json')
