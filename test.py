@@ -27,7 +27,7 @@ if place_result.has_attributions:
 if place_result == 'OVER_QUERY_LIMIT':
     print("LALALALALALA")
 
-for place in place_reuslt:
+for place in place_result:
     place.get_details()
     print(place.local_phone_number)
     print(place.details)

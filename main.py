@@ -26,3 +26,48 @@ except ResponseError as error:
 locations_list = parseAmadeus(response.data)
 profile = parseProfile('templateJSONS/onboarding.json')
 createValueList(locations_list, profile)
+
+'''
+Creates a value/weight dictionary
+The value in our case will represent events
+assign weights depending on cost
+'''
+def createEventCost():
+
+'''
+Creates a value/weight dictionary
+The value in this case will represent events
+assign weights depending on user rating
+'''
+def createEventRating():
+
+
+'''
+Creates a list of events in descending order
+using the knapsack method
+'''
+def createEventWeight()
+
+
+
+'''
+
+'''
+result = []
+def knapsack(n, value, cost, weights):
+    if n == 0 or cost == 0:
+        return
+    else if weight[n] > cost:
+        result = knapsack(n-1, cost)
+    else:
+        # don't put it in the knapsack
+        tmp1 = knapsack(n-1,cost)
+        # add it to the knapsack 
+        tmp2 = value[n] + knapsack(n-1, c-weight[n])
+        result.append(max{tmp1, tmp2})
+    
+    '''
+    We have n events that the user can pick from and we 
+    have a budget. Determine how we will select the events
+    using knapsack algorithm
+    '''
