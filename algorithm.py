@@ -6,7 +6,7 @@ locations: list of location items
 profile: profile item that we will be using for creating values
 returns: a version of it where each item has a numerical value and weight 
 '''
-def createValueList(locations_list, profile):
+def createValueList(locations_list, profile, trip):
   values = []
   weights = []
   for l in locations_list:
@@ -34,5 +34,3 @@ returns: a final itinenrary :D
 '''
 def sortByTime(eventsList,trip):
   days = []
-  return []
-

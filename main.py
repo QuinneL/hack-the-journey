@@ -2,7 +2,7 @@ from amadeus import Client, ResponseError
 from parsing_amadeus import parseAmadeus, Location
 from datetime import datetime, time, date 
 from algorithm import createValueList
-from parsing_json import parseProfile, UserProfile  
+from parsing_json import parseProfile, UserProfile, UserTrip, parseUserTrip
 
 amadeus = Client(
     client_id='CEQgUXrPgPn5oG6KFk2BF2hvqlaZh8I3',
@@ -25,6 +25,8 @@ except ResponseError as error:
 
 locations_list = parseAmadeus(response.data)
 profile = parseProfile('templateJSONS/onboarding.json')
-kp_info = createValueList(locations_list, profile)
+trip = parseUserTrip('templateJSONS/trip.json')
+print(trip.lat_long)
+kp_info = createValueList(locations_list, profile, trip)
 values_list = kp_info[1]
-weights_list = kp_info
+weights_list = kp_info[2]

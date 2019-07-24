@@ -1,4 +1,6 @@
 import json
+from geopy.geocoders import Nominatim
+geolocator = Nominatim(user_agent="TOTO")
 
 class UserProfile:
     name = ""
@@ -30,6 +32,7 @@ class UserProfile:
     '''
     def is_over_21(self):
         return int(self.age) >= 21
+
     
 
 '''
@@ -50,12 +53,29 @@ def parseProfile(profile):
         print(user.is_over_21())
         return user
 
-'''
-trip: json file for each trip made by the app
-returns: maybe initialized global variables such as budget, dates, etc
-'''
-def parseTrip(trip):
-    return 1
+
+class UserTrip:
+    traveler_number = 1
+    friends_family_romantic = "FAMILY"
+    hotel_address = ""
+    lat_long = (0,0)
+    time_of_visit = []
+    def __init__(self, traveler_number, who, hotel_address, time_of_visit):
+       self.travelers = traveler_number
+       self.friends_family_romantic = who
+       self.hotel_address = hotel_address
+       self.lat_long = (geolocator.geocode(hotel_address).latitude, geolocator.geocode(hotel_address).longitude)
+       self.time_of_visit = time_of_visit
 
 
-parseProfile('templateJSONS/onboarding.json')
+'''
+usertrip: JSON file for each USER made by the app
+type: String
+returns: UserTrip instance
+'''
+def parseUserTrip(usertrip):
+    with open(usertrip) as json_file:
+        trip_dict = json.loads(json_file.read())
+        user = UserTrip(trip_dict['travelers'], trip_dict['who'], trip_dict['hotel_address'], trip_dict['time_of_visit'])
+        return user
+
