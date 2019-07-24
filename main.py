@@ -2,7 +2,9 @@ from amadeus import Client, ResponseError
 from parsing_amadeus import parseAmadeus, Location
 from datetime import datetime, time, date 
 from algorithm import createValueList
-from parsing_json import parseProfile, UserProfile  
+from parsing_json import parseProfile, UserProfile
+import knapsack
+import numpy as np
 
 amadeus = Client(
     client_id='CEQgUXrPgPn5oG6KFk2BF2hvqlaZh8I3',
@@ -27,47 +29,17 @@ locations_list = parseAmadeus(response.data)
 profile = parseProfile('templateJSONS/onboarding.json')
 createValueList(locations_list, profile)
 
-'''
-Creates a value/weight dictionary
-The value in our case will represent events
-assign weights depending on cost
-'''
-def createEventCost():
+def create_recommended_lists():
+    top_recommendation_indices = knapsack.printknapSack()
+    all_recommendations = np.array(locations_list)
+    top_recommendations = all_recommendations[top_recommendation_indices]
 
-'''
-Creates a value/weight dictionary
-The value in this case will represent events
-assign weights depending on user rating
-'''
-def createEventRating():
+    all_indices = []
+    for i in range(len(locations_list)):
+        all_indices.append(i)
 
+    other_recommendations_indices = [x for x in all_indices if x not in 
+    top_recommendation_indices]
+    other_recommendations = all_recommendations[other_recommendations_indices]
 
-'''
-Creates a list of events in descending order
-using the knapsack method
-'''
-def createEventWeight()
-
-
-
-'''
-
-'''
-result = []
-def knapsack(n, value, cost, weights):
-    if n == 0 or cost == 0:
-        return
-    else if weight[n] > cost:
-        result = knapsack(n-1, cost)
-    else:
-        # don't put it in the knapsack
-        tmp1 = knapsack(n-1,cost)
-        # add it to the knapsack 
-        tmp2 = value[n] + knapsack(n-1, c-weight[n])
-        result.append(max{tmp1, tmp2})
-    
-    '''
-    We have n events that the user can pick from and we 
-    have a budget. Determine how we will select the events
-    using knapsack algorithm
-    '''
+    return top_recommendations, other_recommendations
