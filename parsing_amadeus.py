@@ -12,8 +12,7 @@ class Location:
   open_time = time(hour=9)
   close_time = time(hour=20)
   hours_spent_average = 1
-  price = 30
-  value_out_of_hundred = 50
+  price = 2
   def __init__(self, name, long_lat, category, tags):
     self.name = name
     self.long_lat = long_lat

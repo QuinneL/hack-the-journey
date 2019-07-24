@@ -27,6 +27,10 @@ except ResponseError as error:
 
 locations_list = parseAmadeus(response.data)
 profile = parseProfile('templateJSONS/onboarding.json')
+kp_info = createValueList(locations_list, profile)
+values_list = kp_info[1]
+weights_list = kp_info
+
 createValueList(locations_list, profile)
 
 def create_recommended_lists():
@@ -43,3 +47,4 @@ def create_recommended_lists():
     other_recommendations = all_recommendations[other_recommendations_indices]
 
     return top_recommendations, other_recommendations
+

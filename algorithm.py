@@ -7,11 +7,16 @@ profile: profile item that we will be using for creating values
 returns: a version of it where each item has a numerical value and weight 
 '''
 def createValueList(locations_list, profile):
+  values = []
+  weights = []
   for l in locations_list:
+    value_of_l = 50
     if l.category in profile.hobbies:
-     l.set_value(l.value_out_of_hundred + 10)
+      value_of_l = value_of_l + 10
+    weights.append(l.hours_spent_average)
+    values.append(value_of_l)
 
-  return locations_list
+  return (values, weights)
 
 
 '''
@@ -23,9 +28,11 @@ def knapsack(valueList):
 
 
 '''
-eventsList: takes in the events chosen by our algorithm
+eventsList: list of items of class location 
+trip: information about the trip
 returns: a final itinenrary :D
 '''
-def sortByTime(eventsList):
-    return []
+def sortByTime(eventsList,trip):
+  days = []
+  return []
 
