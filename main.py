@@ -19,10 +19,12 @@ trip_file = input('Name of trip json file: ')
 if trip_file == "":
     trip_file = 'templateJSONS/trip.json'
 
+profile = parseProfile(profile_file)
+trip = parseUserTrip(trip_file)
 #hardcoding right now
-trip_lat = 41.397158
-trip_long = 2.160873
-city_radius = 2
+trip_lat = trip.lat_long[0]
+trip_long = trip.lat_long[1]
+city_radius = 10
 
 try:
     response = amadeus.reference_data.locations.points_of_interest.get(latitude=trip_lat, longitude=trip_long, radius=city_radius)
@@ -30,11 +32,7 @@ except ResponseError as error:
     print(error)
 
 locations_list = parseAmadeus(response.data)
-profile = parseProfile(profile_file)
-trip = parseUserTrip(trip_file)
-print(trip.lat_long)
 kp_info = createValueList(locations_list, profile, trip)
-
 values_list = kp_info[0]
 weights_list = kp_info[1]
 

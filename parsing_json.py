@@ -49,8 +49,6 @@ def parseProfile(profile):
         profile_dict['date'], profile_dict['hobbies'], 
         profile_dict['rest_or_play'], profile_dict['wakeUp'], 
         profile_dict['sleep'])
-        print(user.age)
-        print(user.is_over_21())
         return user
 
 
