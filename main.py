@@ -2,13 +2,9 @@ from amadeus import Client, ResponseError
 from parsing_amadeus import parseAmadeus, Location
 from datetime import datetime, time, date 
 from algorithm import createValueList
-<<<<<<< HEAD
 from parsing_json import parseProfile, UserProfile, UserTrip, parseUserTrip
-=======
-from parsing_json import parseProfile, UserProfile
 import knapsack
 import numpy as np
->>>>>>> 4a6f2a4085b95c96b2b876fad745f20f00261cdc
 
 amadeus = Client(
     client_id='CEQgUXrPgPn5oG6KFk2BF2hvqlaZh8I3',
@@ -17,7 +13,11 @@ amadeus = Client(
 
 #in real life the app would fetch information
 profile_file = input('Name of profile json file: ')
+if profile_file == "":
+    profile_file = 'templateJSONS/onboarding.json'
 trip_file = input('Name of trip json file: ')
+if trip_file == "":
+    trip_file = 'templateJSONS/trip.json'
 
 #hardcoding right now
 trip_lat = 41.397158
@@ -30,13 +30,13 @@ except ResponseError as error:
     print(error)
 
 locations_list = parseAmadeus(response.data)
-profile = parseProfile('templateJSONS/onboarding.json')
-trip = parseUserTrip('templateJSONS/trip.json')
+profile = parseProfile(profile_file)
+trip = parseUserTrip(trip_file)
 print(trip.lat_long)
 kp_info = createValueList(locations_list, profile, trip)
 
-values_list = kp_info[1]
-weights_list = kp_info[2]
+values_list = kp_info[0]
+weights_list = kp_info[1]
 
 def create_recommended_lists():
     top_recommendation_indices = knapsack.printknapSack()
