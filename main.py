@@ -36,8 +36,13 @@ kp_info = createValueList(locations_list, profile, trip)
 values_list = kp_info[0]
 weights_list = kp_info[1]
 
+'''
+Creates a top recommendation list of events for the user in addition to less 
+personalized events list 
+'''
 def create_recommended_lists():
-    top_recommendation_indices = knapsack.printknapSack()
+    top_recommendation_indices = knapsack.printknapSack( , weights_list, 
+    values_list, len(values_list))
     all_recommendations = np.array(locations_list)
     top_recommendations = all_recommendations[top_recommendation_indices]
 
@@ -45,6 +50,7 @@ def create_recommended_lists():
     for i in range(len(locations_list)):
         all_indices.append(i)
 
+    # grab the rest of the indices that were not picked by the knapsack algo
     other_recommendations_indices = [x for x in all_indices if x not in 
     top_recommendation_indices]
     other_recommendations = all_recommendations[other_recommendations_indices]
