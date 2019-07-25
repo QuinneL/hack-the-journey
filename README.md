@@ -21,7 +21,7 @@ Observe that we output a list of top recommended events for the user. The
 top recommended events list is created using the knapsack algorithm, which takes 
 user's hobbies, time, and budget into consideration. 
 
-We also output other recommendations that don't fit into user preferences as well
+We also output other recommendations that don't fit into user preferences and schedule as well
 as top recommended events list. 
 
 
