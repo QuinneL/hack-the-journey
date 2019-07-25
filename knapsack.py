@@ -49,6 +49,3 @@ def printknapSack(W, wt, val, n):
             res = res - val[i - 1] 
             w = w - wt[i - 1] 
     return return_indices
-
-hello = printknapSack(50,[30,20,10,10,10],[2,5,7,4,8],5)
-print(hello)
