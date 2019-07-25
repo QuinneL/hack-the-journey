@@ -38,8 +38,21 @@ def parseAmadeus(amadeus):
     ll = (l["geoCode"]["latitude"], l["geoCode"]["longitude"])
     list_locations.append(Location(l["name"], ll, l["category"], l["tags"]))
 
+  #println using for debugging only
+  for item in list_locations:
+    print(item.name)
+
   return list_locations
 
+'''
+location_list: An array of Location objects
+returns: an array of Location names
+'''
+def grabNames(location_list):
+  location_names = []
+  for location in location_list:
+    location_names.append(location.name)
+  return location_names
 
 #running the method on a tester
 #with open('j.json') as json_file: 
