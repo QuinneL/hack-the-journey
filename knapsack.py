@@ -1,10 +1,8 @@
-# '''
-# We have n events that the user can pick from and we 
-# have a budget. Determine how we will select the events
-# using knapsack algorithm
-# '''
-# Prints the items which are put in a  
-# knapsack of capacity W 
+'''
+We have n events that the user can pick from and we 
+have a budget. Determine how we will select the events
+using knapsack algorithm
+'''
 def printknapSack(W, wt, val, n): 
     return_values = []
     return_indices = []
@@ -27,7 +25,6 @@ def printknapSack(W, wt, val, n):
   
     # stores the result of Knapsack 
     res = K[n][W] 
-    print(res) 
       
     w = W 
     for i in range(n, 0, -1): 
@@ -51,20 +48,7 @@ def printknapSack(W, wt, val, n):
             # its value is deducted 
             res = res - val[i - 1] 
             w = w - wt[i - 1] 
-    print(return_values, return_weights, return_indices)
-  
-# Driver code 
-val = [ 60, 100, 120 ] 
-wt = [ 10, 20, 30 ] 
-W = 50
-n = len(val) 
-      
-printknapSack(W, wt, val, n) 
-  
-'''
-given a dictionary of event and cost
-return a new dictionary that only has events that cost below
-a certain limit and is in cost ascending order
-'''
-# def sort_by_cost()
+    return return_indices
 
+hello = printknapSack(50,[30,20,10,10,10],[2,5,7,4,8],5)
+print(hello)
