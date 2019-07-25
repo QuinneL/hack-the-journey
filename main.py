@@ -52,10 +52,13 @@ def create_recommended_lists():
     for i in range(len(locations_list)):
         all_indices.append(i)
     
-    # grab the rest of the indices that were not picked by the knapsack algo
-    other_recommendations_indices = np.setdiff1d(all_indices, 
-                                    top_recommendation_indices)
-    other_recommendations = all_recommendations[other_recommendations_indices]
+    if np.array_equal(all_indices, top_recommendation_indices):
+        other_recommendations = []
+    else:
+        # grab the rest of the indices that were not picked by the knapsack algo
+        other_recommendations_indices = np.setdiff1d(all_indices, 
+                                        top_recommendation_indices)
+        other_recommendations = all_recommendations[other_recommendations_indices]
 
     print('top_recommendations\n', grabNames(top_recommendations))
     print('other_recommendations\n', grabNames(other_recommendations))
