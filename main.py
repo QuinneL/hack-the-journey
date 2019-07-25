@@ -25,9 +25,14 @@ trip = parseUserTrip(trip_file)
 trip_lat = trip.lat_long[0]
 trip_long = trip.lat_long[1]
 city_radius = 10
-
 try:
-    response = amadeus.reference_data.locations.points_of_interest.get(latitude=trip_lat, longitude=trip_long, radius=city_radius)
+    response = amadeus.reference_data.locations.points_of_interest.get(
+        latitude=trip_lat, 
+        longitude=trip_long,
+        radius=city_radius,
+        pageLimit=20,
+        pageOffset=1
+        )
 except ResponseError as error:
     print(error)
 
