@@ -12,7 +12,8 @@ class Location:
   open_time = time(hour=9)
   close_time = time(hour=20)
   hours_spent_average = 1
-  price = 2
+  price = 30
+  value_out_of_hundred = 50
   def __init__(self, name, long_lat, category, tags):
     self.name = name
     self.long_lat = long_lat
@@ -36,12 +37,25 @@ returns: returns a hashmap or table
 def parseAmadeus(amadeus):
   list_locations = []
   for l in amadeus:
-    #creating new location 
+
     long_lat = (l["geoCode"]["latitude"], l["geoCode"]["longitude"])
     list_locations.append(Location(l["name"], long_lat, l["category"], l["tags"]))
 
+  #println using for debugging only
+  for item in list_locations:
+    print(item.name)
+
   return list_locations
 
+'''
+location_list: An array of Location objects
+returns: an array of Location names
+'''
+def grabNames(location_list):
+  location_names = []
+  for location in location_list:
+    location_names.append(location.name)
+  return location_names
 
 #running the method on a tester
 #with open('j.json') as json_file: 

@@ -1,5 +1,5 @@
 from amadeus import Client, ResponseError
-from parsing_amadeus import parseAmadeus, Location
+from parsing_amadeus import grabNames, parseAmadeus, Location
 from datetime import datetime, time, date 
 from algorithm import createValueList
 from parsing_json import parseProfile, UserProfile, UserTrip, parseUserTrip
@@ -37,6 +37,7 @@ values_list = kp_info[0]
 weights_list = kp_info[1]
 weight_limit = profile.hours_awake() * trip.num_days()
 
+
 '''
 Creates a top recommendation list of events for the user in addition to less 
 personalized events list 
@@ -56,7 +57,7 @@ def create_recommended_lists():
                                     top_recommendation_indices)
     other_recommendations = all_recommendations[other_recommendations_indices]
 
-    print('top_recommentdations:\n', top_recommendations, 
-    '\nother_recommendations:\n', other_recommendations)
+    print('top_recommendations\n', grabNames(top_recommendations))
+    print('other_recommendations\n', grabNames(other_recommendations))
 
 create_recommended_lists()
