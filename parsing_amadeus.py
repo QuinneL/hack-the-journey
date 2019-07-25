@@ -6,20 +6,18 @@ from datetime import datetime, time, date
 class Location:
   #address = ""
   name = ""
-  long_lat = (0,0)
+  lat_long = (0,0)
   category = ""
   tags = []
   open_time = time(hour=9)
   close_time = time(hour=20)
   hours_spent_average = 1
   price = 2
-  def __init__(self, name, long_lat, category, tags):
+  def __init__(self, name, ll, category, tags):
     self.name = name
-    self.long_lat = long_lat
+    self.lat_long = ll
     self.category = category
     self.tags = tags 
-    #location = geolocator.reverse(long_lat)
-    #self.address = location
   def add_time(self, open, close, price, hours):
     self.open_time = open
     self.close_time = close
@@ -37,8 +35,8 @@ def parseAmadeus(amadeus):
   list_locations = []
   for l in amadeus:
     #creating new location 
-    long_lat = (l["geoCode"]["latitude"], l["geoCode"]["longitude"])
-    list_locations.append(Location(l["name"], long_lat, l["category"], l["tags"]))
+    ll = (l["geoCode"]["latitude"], l["geoCode"]["longitude"])
+    list_locations.append(Location(l["name"], ll, l["category"], l["tags"]))
 
   return list_locations
 
