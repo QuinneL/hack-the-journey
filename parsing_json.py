@@ -81,6 +81,5 @@ def parseUserTrip(usertrip):
     with open(usertrip) as json_file:
         trip_dict = json.loads(json_file.read())
         user = UserTrip(trip_dict['travelers'], trip_dict['who'], trip_dict['hotel_address'], trip_dict['time_of_visit'])
-        print(user.time_of_visit)
         return user
 

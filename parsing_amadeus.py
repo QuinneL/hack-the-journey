@@ -40,10 +40,6 @@ def parseAmadeus(amadeus):
     long_lat = (l["geoCode"]["latitude"], l["geoCode"]["longitude"])
     list_locations.append(Location(l["name"], long_lat, l["category"], l["tags"]))
 
-  #println using for debugging only
-  for item in list_locations:
-    print(item.name)
-
   return list_locations
 
 
