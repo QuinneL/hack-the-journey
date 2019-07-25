@@ -41,7 +41,7 @@ Creates a top recommendation list of events for the user in addition to less
 personalized events list 
 '''
 def create_recommended_lists():
-    top_recommendation_indices = knapsack.printknapSack( , weights_list, 
+    top_recommendation_indices = knapsack.printknapSack(100 , weights_list, 
     values_list, len(values_list))
     all_recommendations = np.array(locations_list)
     top_recommendations = all_recommendations[top_recommendation_indices]
