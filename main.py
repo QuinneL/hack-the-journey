@@ -35,6 +35,7 @@ locations_list = parseAmadeus(response.data)
 kp_info = createValueList(locations_list, profile, trip)
 values_list = kp_info[0]
 weights_list = kp_info[1]
+weight_limit = profile.hours_awake() * trip.num_days()
 
 '''
 Creates a top recommendation list of events for the user in addition to less 

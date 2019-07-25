@@ -32,7 +32,9 @@ class UserProfile:
     '''
     def is_over_21(self):
         return int(self.age) >= 21
-
+    def hours_awake(self):
+        #TODO
+        return 10
     
 
 '''
@@ -64,7 +66,9 @@ class UserTrip:
        self.hotel_address = hotel_address
        self.lat_long = (geolocator.geocode(hotel_address).latitude, geolocator.geocode(hotel_address).longitude)
        self.time_of_visit = time_of_visit
-
+    def num_days(self):
+        #TODO
+        return 2
 
 '''
 usertrip: JSON file for each USER made by the app
