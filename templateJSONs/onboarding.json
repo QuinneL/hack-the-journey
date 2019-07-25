@@ -12,8 +12,8 @@
     "smoke": "no",
     "date": "12",
     "hobbies": [
-      "beach",
-      "night life",
+      "BEACH_PARK",
+      "NIGHTLIFE",
       "RESTAURANT"
     ],
     "rest_or_play": "play",

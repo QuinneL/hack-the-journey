@@ -10,27 +10,20 @@ def createValueList(locations_list, profile, trip):
   values = []
   weights = []
   for l in locations_list:
-    value_of_l = 50
-    if l.category in profile.hobbies:
-      value_of_l = value_of_l + 10
-    weights.append(l.hours_spent_average)
-    values.append(value_of_l)
-
+    if l.category != "RESTAURANT":
+      value_of_l = 50
+      if l.category in profile.hobbies:
+        value_of_l = value_of_l + 10
+      weights.append(l.hours_spent_average)
+      values.append(value_of_l)
+    else:
+      values.append(0)
+      weights.append(100)
   return (values, weights)
 
-
-'''
-valueList: a list where each item has a value and a weight
-returns: a set of items that are MOST valuable but still under weight
-'''
-def knapsack(valueList):
-    return []
-
-
-'''
-eventsList: list of items of class location 
-trip: information about the trip
-returns: a final itinenrary :D
-'''
-def sortByTime(eventsList,trip):
-  days = []
+def returnFoodList(locations_list):
+    restaurants = []
+    for loc in locations_list:
+      if loc.category == "RESTAURANT":
+        restaurants.append(loc)
+    return restaurants 
