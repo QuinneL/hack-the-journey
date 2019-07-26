@@ -6,7 +6,6 @@ from datetime import datetime, date
 class UserProfile:
     name = ""
     age = ""
-    food = []
     drink = ""
     smoke = ""
     date = ""
@@ -15,10 +14,9 @@ class UserProfile:
     wakeUp = datetime.strptime('10:00AM', '%I:%M%p').time()
     sleep = datetime.strptime('11:00PM', '%I:%M%p').time()
 
-    def __init__(self, name, age, food, drink, smoke, date, hobbies, rest_or_play, wakeUp, sleep):
+    def __init__(self, name, age, drink, smoke, date, hobbies, rest_or_play, wakeUp, sleep):
        self.name = name
        self.age = age
-       self.food = food
        self.drink = drink
        self.smoke = smoke
        self.date = date
@@ -45,7 +43,7 @@ def parseProfile(profile):
         profile_dict = json.loads(json_file.read())
         # creates an instance of a user with onboarding data stored
         user = UserProfile(profile_dict['name'], profile_dict['age'], 
-        profile_dict['food'],profile_dict['drink'], profile_dict['smoke'], 
+        profile_dict['drink'], profile_dict['smoke'], 
         profile_dict['date'], profile_dict['hobbies'], 
         profile_dict['rest_or_play'], profile_dict['wakeUp'], 
         profile_dict['sleep'])
