@@ -1,16 +1,8 @@
   {
-    "name": "Sarah",
-    "age": "21",
-    "food": [
-      "asian",
-      "dessert",
-      "pasta",
-      "pizza",
-      "wings"
-    ],
-    "drink": "yes",
-    "smoke": "no",
-    "date": "12",
+    "name": "Dorothy",
+    "age": 18,
+    "drink": "no",
+    "smoke": "yes",
     "hobbies": [
       "SHOPPING",
       "NIGHTLIFE",

@@ -1,7 +1,7 @@
 from amadeus import Client, ResponseError
 from parsing_amadeus import grabNames, parseAmadeus, Location
 from datetime import datetime, time, date 
-from algorithm import createValueList
+from algorithm import createValueList, returnFoodList
 from parsing_json import parseProfile, UserProfile, UserTrip, parseUserTrip
 import knapsack
 import numpy as np
@@ -65,5 +65,6 @@ def create_recommended_lists():
 
     print('top_recommendations\n', grabNames(top_recommendations))
     print('other_recommendations\n', grabNames(other_recommendations))
+    print('dining_recommendations\n', grabNames(returnFoodList(locations_list)))
 
 create_recommended_lists()
