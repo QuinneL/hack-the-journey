@@ -11,12 +11,6 @@ amadeus = Client(
     client_secret='jqLjs9tEeSC41aiK'
 )
 
-locations_list = []
-kp_info = []
-values_list = []
-weights_list = []
-weight_limit = []
-
 #in real life the app would fetch information
 profile_file = input('Name of profile json file: ')
 if profile_file == "":
@@ -40,26 +34,11 @@ try:
 except ResponseError as error:
     print(error)
 
-locations_list.append(parseAmadeus(response.data))
-kp_info.append(createValueList(locations_list[0], profile, trip))
-values_list.append(kp_info[0][0])
-weights_list.append(kp_info[0][1])
-weight_limit.append(profile.hours_awake() * trip.num_days())
-
-i = 0
-while amadeus.next(response) is not None:
-    try:
-        i+=1
-        response = amadeus.next(response)
-        locations_list.append(parseAmadeus(response.data))
-        kp_info.append(createValueList(locations_list[i], profile, trip))
-        values_list.append(kp_info[i][0])
-        weights_list.append(kp_info[i][1])
-        weight_limit.append(profile.hours_awake() * trip.num_days())
-        print(response)
-    except ResponseError as error:
-        print(error)
-    
+locations_list = parseAmadeus(response.data)
+kp_info = createValueList(locations_list, profile, trip)
+values_list = kp_info[0]
+weights_list = kp_info[1]
+weight_limit = profile.hours_awake() * trip.num_days()
 
 
 '''
